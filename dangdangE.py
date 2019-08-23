@@ -1,4 +1,6 @@
 import discord
+import os
+
 
 client = discord.Client()
 
@@ -6,8 +8,11 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
+    print("login")
+    print(client.user.name)
     print(client.user.id)
-    print("ready")
+    print("~~~~~~~~~~~~~")
+    
     game = discord.Game("크라우드한테 부려져 일")
     await client.change_presence(status=discord.Status.online, activity=game)
 
@@ -18,4 +23,6 @@ async def on_message(message):
         await message.channel.send("어서옵쇼!")
 
 
-client.run("NjE0NDYyMDg1ODkxNDg5ODAw.XV_0iw.3fGOVZp5fBHkZKLSI5_eIEE4l7o")
+        
+access_token = os.environ["BOT_TOKEN"]        
+client.run(access_token)
