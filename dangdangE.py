@@ -14,13 +14,13 @@ async def on_ready():
     print("~~~~~~~~~~~~~")
     
     game = discord.Game("크라우드한테 부려져 일")
-    await client.change_presence(status=discord.Status.online, activity=game)
+    await client.change_presence(game=discord.Game(name='', type=1))
 
 
 @client.event
 async def on_message(message):
     if message.content.startswith("안녕하세요"):
-        await message.channel.send("어서옵쇼!")
+        await client.send.message(message.channel, "안녕하세요")
 
 
         
